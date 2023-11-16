@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.IO;
 using UnityEngine.UI;
 
 public class PhoneCamera : MonoBehaviour
@@ -52,7 +53,7 @@ public class PhoneCamera : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5);
         yield return new WaitForEndOfFrame();
-
+/*
         Texture2D foto = ScreenCapture.CaptureScreenshotAsTexture();
         //foto = Resize(foto, 1080, 1920);
         byte[] bytesImagen = foto.EncodeToPNG(); 
@@ -62,6 +63,22 @@ public class PhoneCamera : MonoBehaviour
         System.IO.File.WriteAllBytes(rutaDeAlmacenamiento, bytesImagen);
         // Imprime un mensaje indicando la ruta de almacenamiento
         //Debug.Log("Imagen guardada en: " + rutaDeAlmacenamiento);
+*/      
+        Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        texture.Apply();
+
+        string name = "PhotoPals_Screenshot " + System.DateTime.Now.ToString("dd-MM-yyyy_ss-mm-HH") + ".png";
+
+        //PC
+        //byte[] bytes = texture.EncodeToPNG();
+        //File.WriteAllBytes(name, bytes);
+
+        //MOBILE
+        NativeGallery.SaveImageToGallery(texture,"Myapp pictures", name);
+
+
+        Destroy(texture);
 
     }
 
