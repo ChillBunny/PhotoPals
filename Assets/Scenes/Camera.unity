@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 307335814}
   fit: {fileID: 307335813}
+  nombreDeNuevaEscena: Picker
 --- !u!114 &307335813
 MonoBehaviour:
   m_ObjectHideFlags: 0

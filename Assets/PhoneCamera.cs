@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PhoneCamera : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PhoneCamera : MonoBehaviour
 
     public RawImage background;
     public AspectRatioFitter fit;
+
+    public string nombreDeNuevaEscena;
 
 
       
@@ -33,6 +36,7 @@ public class PhoneCamera : MonoBehaviour
         {
             if(devices[i].isFrontFacing){
                 backCam = new WebCamTexture(devices[i].name,Screen.width,Screen.height);
+                break;
             }
         }
 
@@ -79,6 +83,9 @@ public class PhoneCamera : MonoBehaviour
 
 
         Destroy(texture);
+
+        yield return new WaitForSecondsRealtime(10);
+
 
     }
 
