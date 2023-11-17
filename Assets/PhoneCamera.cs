@@ -51,7 +51,7 @@ public class PhoneCamera : MonoBehaviour
 
     IEnumerator Waiter(){
 
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(10);
         yield return new WaitForEndOfFrame();
 /*
         Texture2D foto = ScreenCapture.CaptureScreenshotAsTexture();
