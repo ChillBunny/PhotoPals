@@ -13,7 +13,7 @@ public class PhoneCamera : MonoBehaviour
     public RawImage background;
     public AspectRatioFitter fit;
 
-    public string nombreDeNuevaEscena;
+
 
 
       
@@ -85,6 +85,7 @@ public class PhoneCamera : MonoBehaviour
         Destroy(texture);
 
         yield return new WaitForSecondsRealtime(10);
+        SceneManager.LoadScene(0);
 
 
     }
